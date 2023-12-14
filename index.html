@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>影视资源站排行榜</title>
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+    }
+
+    .container {
+      height: 100vh;
+      overflow: auto;
+    }
+
+    .header {
+      position: sticky;
+      left: 0;
+    }
+
+    table {
+      border-spacing: 0;
+      margin: auto;
+      max-width: 1440px;
+      --img-max-width: 360px;
+    }
+
+    @media (max-width: 1080px) {
+      table {
+        --img-max-width: 240px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      table {
+        --img-max-width: 160px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      table {
+        --img-max-width: 100px;
+      }
+    }
+
+    table img {
+      max-width: var(--img-max-width);
+      vertical-align: middle;
+    }
+
+    th,
+    td {
+      padding: 4px;
+      overflow-wrap: break-word;
+      max-width: calc(100vw - 2em - var(--img-max-width) - 16px - 2em);
+      box-shadow: 0 0 0 1px black;
+      --background-color: white;
+      background-color: var(--background-color);
+    }
+
+    th {
+      position: sticky;
+      z-index: 1;
+    }
+
+    thead th {
+      z-index: 2;
+    }
+
+    thead th:nth-child(-n+2) {
+      z-index: 3;
+    }
+
+    thead th {
+      --background-color: azure;
+      top: 0;
+    }
+
+    tbody th:not([rowspan]) {
+      --background-color: white;
+    }
+
+    thead th:first-child,
+    tbody th[rowspan] {
+      min-width: 2em;
+      max-width: 2em;
+      padding: 4px 0;
+      left: 0;
+    }
+
+    thead th:nth-child(2),
+    tbody th:not([rowspan]) {
+      left: 2em;
+    }
+
+    thead th:nth-child(2)::after,
+    tbody th:not([rowspan])::after {
+      content: "";
+      position: absolute;
+      left: 100%;
+      top: 0;
+      width: 8px;
+      height: 100%;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.025), rgba(0, 0, 0, 0));
+      opacity: 0;
+      transition: 0.5s;
+      pointer-events: none;
+    }
+
+    .hscrolled thead th:nth-child(2)::after,
+    .hscrolled tbody th:not([rowspan])::after {
+      opacity: 1;
+    }
+
+    .anim-gold {
+      background-image: repeating-linear-gradient(160deg, hsl(51, 100%, 75%), hsl(51, 100%, 85%) 25%, hsl(51, 100%, 75%) 50%);
+    }
+
+    .anim-silver {
+      background-image: repeating-linear-gradient(160deg, hsl(0, 0%, 85%), hsl(0, 0%, 90%) 25%, hsl(0, 0%, 85%) 50%);
+    }
+
+    .anim-gold,
+    .anim-silver {
+      background-size: 200% 200%;
+      animation: anim-linear-gradient 1s linear infinite;
+    }
+
+    @keyframes anim-linear-gradient {
+      0% {
+        background-position: 100% 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>影视资源站排行榜</h1>
+      <p>仅测试M3U8资源，广东移动IP下测速，忽略广告</p>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th style="min-width: 3em;">站点</th>
+          <th style="min-width: 9em;">画质</th>
+          <th style="min-width: 9em;">速度</th>
+          <th style="min-width: 3em;">更新</th>
+          <th style="min-width: 9em;">备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th rowspan="1" style="color: #f0a; background-color: rgb(255, 192, 234);">T0</th>
+          <th><img src="https://suonizy.com/static/suoni/img/logo.png" alt="索尼"></th>
+          <td class="anim-gold">810p/1080p/原画，有不少高码率，唯一一个有原始画质（但不一定是BD）的资源站</td>
+          <td>国内CDN，CDN有缓存时极快，没有时高峰期会慢（冷门资源通常没缓存）</td>
+          <td>较早</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th rowspan="1" style="color: red; background-color: rgb(255, 192, 192);">T1</th>
+          <th><img src="http://ffzy.tv/template/ffzy/static/picture/logo.png" alt="非凡"></th>
+          <td>720p/810p/1080p</td>
+          <td>快（高峰不稳）</td>
+          <td class="anim-silver">很早</td>
+          <td>集数很全</td>
+        </tr>
+        <tr>
+          <th rowspan="3" style="color: orange; background-color: rgb(255, 233, 192);">T2</th>
+          <th><img src="https://bfzy.tv/upload/site/20230327-1/30518bd97dc4ae8725db2d8a13200031.png" alt="暴风"></th>
+          <td>480p/720p/1080p，有一些高码率</td>
+          <td>快（高峰不稳）</td>
+          <td>较早</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th><img src="https://yzzy.tv/template/newstyle/images/logo.gif" alt="优质"></th>
+          <td>1080x606/720p</td>
+          <td>快（高峰不稳）</td>
+          <td class="anim-gold">最早</td>
+          <td>有不少高清/无修旧资源，集数很全</td>
+        </tr>
+        <tr>
+          <th><img src="https://kuaiyunzy.com/static/jsui/img/logo_max.png" alt="快云" style="background-color: #1C86EE;"></th>
+          <td>720p/1080p，有不少高码率</td>
+          <td>快（高峰不稳）</td>
+          <td></td>
+          <td>部分片缺集数</td>
+        </tr>
+        <tr>
+          <th rowspan="4" style="color: purple; background-color: rgb(255, 192, 255);">T3</th>
+          <th><img src="https://lzizy1.com/template/lzizycom/static/picture/logo.png" alt="量子"></th>
+          <td>1080x606/720p/810p/1080p</td>
+          <td>快（高峰不稳）</td>
+          <td class="anim-silver">很早</td>
+          <td>部分资源分类错了/内容错了/500，有一些高清/无修旧资源</td>
+        </tr>
+        <tr>
+          <th><img src="https://haohuazy.com/template/default/images/site_logo.png" alt="豪华"></th>
+          <td>1080p</td>
+          <td>国内CDN，快</td>
+          <td></td>
+          <td>部分美剧断头</td>
+        </tr>
+        <tr>
+          <th><img src="https://jisuzy.com/template/default/images/site_logo.png" alt="极速"></th>
+          <td>1080p</td>
+          <td>国内CDN，快</td>
+          <td></td>
+          <td>部分美剧断头</td>
+        </tr>
+        <tr>
+          <th><img src="https://kuaikanzy.com/kkstatic/image/logo.png" alt="快看"></th>
+          <td>720p/1080p，有一些高码率</td>
+          <td>快（高峰不稳）</td>
+          <td></td>
+          <td>部分资源502，集数较全</td>
+        </tr>
+        <tr>
+          <th rowspan="3" style="color: blue; background-color: rgb(192, 192, 255);">T4</th>
+          <th><img src="https://guangsuzy.com/template/guangsu/image/logo.png" alt="光速"></th>
+          <td>1080p</td>
+          <td>国内CDN，一般</td>
+          <td></td>
+          <td>部分美剧断头，部分片缺集数</td>
+        </tr>
+        <tr>
+          <th><img src="https://jinyingzy.com/template/jinying/images/logo.png" alt="金鹰"></th>
+          <td>1080p</td>
+          <td>国内CDN，一般</td>
+          <td></td>
+          <td>部分美剧断头，部分片缺集数</td>
+        </tr>
+        <tr>
+          <th><img src="https://www.kuakezy.com/template/kuakezy/images/logo.gif" alt="夸克"></th>
+          <td>1080x606/1080p</td>
+          <td>一般</td>
+          <td>部分片很早</td>
+          <td>部分美剧断头，部分片缺集数，有较少高清旧资源</td>
+        </tr>
+        <tr>
+          <th rowspan="3" style="color: green; background-color: rgb(192, 255, 192);">T5</th>
+          <th><img src="https://ckzy.me/statics/img/logo_min_f.png" alt="CK" style="background-color: #1C86EE;"></th>
+          <td>720p</td>
+          <td>时快时慢</td>
+          <td>较早</td>
+          <td>只有电影和电视剧，资源少</td>
+        </tr>
+        <tr>
+          <th><img src="https://wujinzy.com/template/ziyuan2/images/logo.jpg" alt="无尽"></th>
+          <td>720p</td>
+          <td>时快时慢</td>
+          <td>较早</td>
+          <td>部分动画断头</td>
+        </tr>
+        <tr>
+          <th><img src="https://ukuzy.com/template/vipzy/images/logo.gif" alt="u酷"></th>
+          <td>720p</td>
+          <td>时快时慢</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th rowspan="7">T10086</th>
+          <th><img src="https://xinlangzy.com/template/xinlangzy/image/logo.png" alt="新浪" style="background-color: #171717;"></th>
+          <td>1080p</td>
+          <td>国内CDN，慢</td>
+          <td></td>
+          <td>部分美剧断头</td>
+        </tr>
+        <tr>
+          <th><img src="https://hongniuziyuan.com/template/vipzy/images/logo.png" alt="红牛"></th>
+          <td>1080p</td>
+          <td>国内CDN，慢</td>
+          <td></td>
+          <td>部分片缺集数</td>
+        </tr>
+        <tr>
+          <th><img src="https://feisuzy.com/statics/img/logo_max_f.gif" alt="飞速"></th>
+          <td>720p/1080p</td>
+          <td>慢</td>
+          <td></td>
+          <td>部分动画断头，有较少无修旧资源</td>
+        </tr>
+        <tr>
+          <th><img src="https://49zyw.com/template/m1938pc/picture/logo.png" alt="49"></th>
+          <td>720p/1080p</td>
+          <td>慢</td>
+          <td>部分片最早</td>
+          <td>部分资源404，旧资源少</td>
+        </tr>
+        <tr>
+          <th><img src="https://ikunzy.com/logo.png" alt="iKun"></th>
+          <td>720p/1080p</td>
+          <td>卡</td>
+          <td>部分片较早</td>
+          <td>部分资源404，集数较全</td>
+        </tr>
+        <tr>
+          <th><img src="https://wolongzyw.com/template/zyz/img/logo.png" alt="卧龙"></th>
+          <td>720p/1080p</td>
+          <td>卡</td>
+          <td></td>
+          <td>集数较全</td>
+        </tr>
+        <tr>
+          <th><img src="https://tiankongzy.com/template/v10012/images/logo.jpg" alt="天空"></th>
+          <td>720p/1080p</td>
+          <td>慢</td>
+          <td></td>
+          <td>部分动画断头</td>
+        </tr>
+        <tr>
+          <th rowspan="1">T114514</th>
+          <th><img src="https://shandianzy.com/template/shandianzy/images/logo.png" alt="闪电"></th>
+          <td>480p</td>
+          <td>时快时慢</td>
+          <td>较早</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script>
+    // 用a包裹img，在img加载完成前先显示alt
+    document.querySelectorAll('img').forEach(img => {
+      const a = document.createElement('a')
+      a.href = new URL(img.src).origin
+      a.target = '_blank'
+      a.append(img.alt)
+      img.replaceWith(a)
+      img.addEventListener('load', () => a.firstChild.replaceWith(img))
+    })
+
+    document.querySelector('.container').addEventListener('scroll', function() {
+      this.classList[this.scrollLeft ? 'add' : 'remove']('hscrolled')
+    })
+  </script>
+</body>
+
+</html>
